@@ -10,8 +10,8 @@ module.exports = {
   rules: {
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
-    "no-irregular-whitespace":"off",
-    "eslint-disable-next-line":"off",
-    "eslint-disable":"off"
+    "no-irregular-whitespace":process.env.NODE_ENV === "production" ? "warn" : "off",
+    "eslint-disable-next-line":process.env.NODE_ENV === "production" ? "warn" : "off",
+    "eslint-disable":process.env.NODE_ENV === "production" ? "warn" : "off"
   }
 };
