@@ -1,3 +1,4 @@
+var path = require("path");
 module.exports = {
   /* 部署生产环境和开发环境下的URL：可对当前环境进行区分，baseUrl 从 Vue CLI 3.3 起已弃用，要使用publicPath */
 
@@ -25,6 +26,16 @@ module.exports = {
       title: "Index Page", // 在这个页面中包含的块，默认情况下会包含 // 提取出来的通用 chunk 和 vendor chunk。
       chunks: ["chunk-vendors", "chunk-common", "index"]
     }
+  },
+  configureWebpack: config => {
+    config.resolve = {
+      extensions: [".js", ".json", ".vue"],
+      alias: {
+        "@": path.resolve(__dirname, "./src"),
+        "@components": path.resolve(__dirname, "./src/components"),
+        "@utils": path.resolve(__dirname, "./src/utils"),
+      }
+    };
   },
   /* webpack-dev-server 相关配置 */
   devServer: {
